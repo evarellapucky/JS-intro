@@ -26,11 +26,30 @@ console.log(entrepreneurs70);
 
 //Sors une array qui contient le prénom et le nom des entrepreneurs
 let elist = []
-for(let n = 0; n < entrepreneurs.length; n++) {
-  let entrepreneur = entrepreneurs[n]
-  elist.push("")
+for (let n = 0; n < entrepreneurs.length; n++) {
+  let entrepreneur = entrepreneurs[n];
+  elist.push(entrepreneur.first + ' ' + entrepreneur.last);
 }
-console.log("liste des entrepreneurs")
+console.log("liste des entrepreneurs");
+console.log(elist);
 
 //Quel âge aurait chaque inventeur aujourd'hui ?
+entrepreneurs.forEach(entrepreneur => {
+  let age = 2024 - entrepreneur.year;
+  console.log(entrepreneur.first + ' ' + entrepreneur.last + ' ' + "aurait" + ' ' + age + ' ' + "ans aujourd'hui.");
+});
+
+
 //Trie les entrepreneurs par ordre alphabétique du nom de famille.
+const alphaEntrepreneurs = entrepreneurs.sort((a, b) => {
+  if (a.last < b.last) {
+      return -1;
+  }
+  if (a.last > b.last) {
+      return 1;
+  }
+  return 0;
+});
+
+console.log("Entrepreneurs triés par ordre alphabétique du nom de famille : ");
+console.log(alphaEntrepreneurs);

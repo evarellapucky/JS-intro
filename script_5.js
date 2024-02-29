@@ -14,8 +14,65 @@ const books = [
 ];
 
 //Est-ce que tous les livres ont été au moins empruntés une fois ?
-//Quel est livre le plus emprunté ?
+let rentedBooks = true
+for (let i=0; i < books.length; i ++){
+  if(books[i].rented === 0){
+    rentedBooks = false;
+    break;
+  }
+}
+if (rentedBooks){
+  console.log("les livres ont été empruntés au moins une fois")
+} else {
+  console.log("il y a des livres qui n'ont jamais été empruntés")
+}
+
+//Quel est le livre le plus emprunté ?
+let mostRented = books[0];
+
+for (let i = 0; i < books.length; i ++){
+  if(books[i].rented > mostRented.rented){
+    mostRented = books[i];
+  }
+}
+console.log("le livre le plus emprunté est" + " " + mostRented.title)
+
 //Quel est le livre le moins emprunté ?
+let lessRented = books[0];
+
+for (let i = 0; i < books.length; i ++){
+  if(books[i].rented < lessRented.rented){
+    lessRented = books[i];
+  }
+}
+console.log("le livre le moins emprunté est" + " " + lessRented.title)
+
 //Trouve le livre avec l'ID: 873495 
+function checkId(book) {
+  return book.id === 873495;
+}
+let idBook = books.find(checkId);
+console.log("le livre correspondant à l'id 873495 est" + " " + idBook.title)
+
 //Supprime le livre avec l'ID: 133712 ;
+function checkId(book) {
+  return book.id !== 133712;
+}
+let newBooks = books.filter(checkId)
+
+console.log(newBooks)
+
+
 //Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé).
+const alphaBooks = newBooks.sort((a, b) => {
+  if (a.title < b.title) {
+      return -1;
+  }
+  if (a.last > b.last) {
+      return 1;
+  }
+  return 0;
+});
+
+console.log("livres triés par ordre alphabétique: ");
+console.log(alphaBooks);
