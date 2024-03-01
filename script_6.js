@@ -1,4 +1,4 @@
-let arnArray = "CCGUCGUUGCGCUACAGC";
+let arnArray = "UCCCCCUUGUUCCGCUAC";
 
 let splitArn = [];
 

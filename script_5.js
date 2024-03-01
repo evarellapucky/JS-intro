@@ -51,7 +51,8 @@ console.log("le livre le moins emprunté est" + " " + lessRented.title)
 function checkId(book) {
   return book.id === 873495;
 }
-let idBook = books.find(checkId);
+
+ let idBook = books.find(checkId);
 console.log("le livre correspondant à l'id 873495 est" + " " + idBook.title)
 
 //Supprime le livre avec l'ID: 133712 ;
